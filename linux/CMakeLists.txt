@@ -76,7 +76,6 @@ target_link_libraries(${BINARY_NAME} PRIVATE PkgConfig::GTK)
 target_link_libraries(${BINARY_NAME} PRIVATE ${MIMALLOC_LIB})
 set(MPV_LIB_PATH "/usr/lib/x86_64-linux-gnu/libmpv.so")
 #target_link_libraries(${BINARY_NAME} PRIVATE ${MPV_LIB_PATH})
-list(APPEND PLUGIN_BUNDLED_LIBRARIES ${MPV_LIB_PATH})
 # Run the Flutter tool portions of the build. This must not be removed.
 add_dependencies(${BINARY_NAME} flutter_assemble)
 
@@ -94,6 +93,7 @@ set_target_properties(${BINARY_NAME}
 # them to the application.
 include(flutter/generated_plugins.cmake)
 
+list(APPEND PLUGIN_BUNDLED_LIBRARIES ${MPV_LIB_PATH})
 
 # === Installation ===
 # By default, "installing" just makes a relocatable bundle in the build
