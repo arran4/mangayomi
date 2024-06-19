@@ -74,7 +74,8 @@ apply_standard_settings(${BINARY_NAME})
 target_link_libraries(${BINARY_NAME} PRIVATE flutter)
 target_link_libraries(${BINARY_NAME} PRIVATE PkgConfig::GTK)
 target_link_libraries(${BINARY_NAME} PRIVATE ${MIMALLOC_LIB})
-
+set(MPV_LIB_PATH "/usr/lib/x86_64-linux-gnu/libmpv.so")
+target_link_libraries(${BINARY_NAME} PRIVATE ${MPV_LIB_PATH})
 # Run the Flutter tool portions of the build. This must not be removed.
 add_dependencies(${BINARY_NAME} flutter_assemble)
 
